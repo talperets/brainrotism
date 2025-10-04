@@ -2,6 +2,7 @@
 </script>
 
 <template>
+  <link href="/src/style.css" rel="stylesheet">
   <RouterView />
 </template>
 
