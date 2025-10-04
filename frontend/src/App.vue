@@ -1,22 +1,22 @@
 <script setup lang="ts">
+import LocationAR from './components/LocationAR.vue'
 </script>
 
 <template>
   <link href="/src/style.css" rel="stylesheet">
   <RouterView />
+  <LocationAR />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+<style>
+#arjs-video {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  z-index: 0; /* behind AR objects but visible */
+  margin: 0 !important;
 }
 </style>
