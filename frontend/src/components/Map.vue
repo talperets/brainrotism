@@ -32,9 +32,9 @@ onMounted(() => {
 
     const el = document.createElement('div');
     el.className = 'character';
-    el.style.backgroundImage = 'url(/vite.svg)';
-    el.style.width = '40px';
-    el.style.height = '40px';
+    el.style.backgroundImage = `url(/characters/character_${i}.png)`;
+    el.style.width = '50px';
+    el.style.height = '50px';
     el.style.backgroundSize = 'cover';
 
     new mapboxgl.Marker(el).setLngLat([randomLng, randomLat]).addTo(map);
