@@ -141,10 +141,10 @@ PlayerCity ||--o{ XP
 
 ### Characters
 
-* `GET /characters` → List all available characters (global)
-* `GET /characters/{id}` → Fetch details of a single character
-* `POST /playercharacters/catch` → Player captures a character (requires coordinates)
-* `GET /playercharacters/{player_id}` → List all characters caught by a player in the city
+  * `GET /characters` → List all available characters (global)
+  * `GET /characters/{id}` → Fetch details of a single character
+  * `POST /playercharacters/catch` → Player captures a character (requires coordinates)
+  * `GET /playercharacters/{player_id}` → List all characters caught by a player in the city
 
 ### Items
 
