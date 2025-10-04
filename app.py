@@ -1,24 +1,16 @@
-from fastapi import FastAPI, Depends, HTTPException
-from sqlalchemy.orm import Session
-
+from fastapi import FastAPI
 import models
-import schemas
-import crud
-from database import get_db, engine
+from database import engine
+from routers import auth, cities, characters, items, economy, admin
 
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Brainrotism API")
 
-
-@app.post("/items/", response_model=schemas.ItemRead)
-def create_item(item: schemas.ItemCreate, db: Session = Depends(get_db)):
-    return crud.create_item(db, item)
-
-
-@app.get("/items/{item_id}", response_model=schemas.ItemRead)
-def read_item(item_id: int, db: Session = Depends(get_db)):
-    db_item = crud.get_item(db, item_id)
-    if db_item is None:
-        raise HTTPException(status_code=404, detail="Item not found")
-    return db_item
+# Include all routers
+app.include_router(auth.router)
+app.include_router(cities.router)
+app.include_router(characters.router)
+app.include_router(items.router)
+app.include_router(economy.router)
+app.include_router(admin.router)
