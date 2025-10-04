@@ -17,22 +17,36 @@ onMounted(() => {
   }
 
   mapboxgl.accessToken = import.meta.env.VITE_MAP_TOKEN
+  const krakowCenter = [19.9450, 50.0647];
 
   map = new mapboxgl.Map({
     container: container,
-    style: 'mapbox://styles/mapbox/streets-v12',
-    center: [19.9450, 50.0647],
-    zoom: 13,
+    style: 'mapbox://styles/ixapa/cmgcjb7lt00ew01pde8lja121',
+    center: krakowCenter,
+    zoom: 12,
   })
 
-  const el = document.createElement('div')
-  el.className = 'character-marker'
-  el.style.backgroundImage = 'url(/character.png)'
-  el.style.width = '40px'
-  el.style.height = '40px'
-  el.style.backgroundSize = 'cover'
+  for (let i = 0; i < 10; i++) {
+    const randomLng = krakowCenter[0] + (Math.random() - 0.5) * 0.05;
+    const randomLat = krakowCenter[1] + (Math.random() - 0.5) * 0.05;
 
-  new mapboxgl.Marker(el).setLngLat([6.5665, 52.2194]).addTo(map)
+    const el = document.createElement('div');
+    el.className = 'character';
+    el.style.backgroundImage = 'url(/vite.svg)';
+    el.style.width = '40px';
+    el.style.height = '40px';
+    el.style.backgroundSize = 'cover';
+
+    new mapboxgl.Marker(el).setLngLat([randomLng, randomLat]).addTo(map);
+  }
+
+  const geoControl = new mapboxgl.GeolocateControl({
+    positionOptions: { enableHighAccuracy: true },
+    trackUserLocation: true,
+    showUserHeading: true
+  });
+  map.addControl(geoControl);
+  map.on('load', () => geoControl.trigger());
 })
 
 onBeforeUnmount(() => {
