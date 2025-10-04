@@ -1,4 +1,6 @@
-<script>
+<script setup>
+import Character from '../components/Character.vue';
+
 </script>
 <template>
   <div>
@@ -6,11 +8,11 @@
     <p>Dollar</p>
     <RouterLink to="/settings">Settings</RouterLink>
   </div>
-  <div><p>leaderbord</p></div>
+  <div><RouterLink to="/leaderboard">Leaderboard</RouterLink></div>
   <div>
-    <p>Character</p>
+    <RouterLink to="/library">Characters</RouterLink>
     <p>Top character </p>
     <p>quick change</p>
-    <p>Trallarero trallala</p>
+    <Character>Trallarero trallala</Character>
   </div>
 </template>

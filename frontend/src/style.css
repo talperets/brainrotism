@@ -1,43 +1,8 @@
 @import "tailwindcss";
 
-:root {
-  --primary-color: #4f46e5; /* Indigo */
-  --secondary-color: #22c55e; /* Green */
-  --accent-color: #f97316; /* Orange */
-  --background-color: #487add; /* Light Gray */
-  --text-color: #1f2937; /* Dark Gray */
-  --muted-color: #9ca3af; /* Muted Gray */
-}
 
-body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-}
 
-a {
-  color: var(--primary-color);
-}
-
-button {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 0.375rem;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: var(--secondary-color);
-}
-
-input {
-  border: 1px solid var(--muted-color);
-  padding: 0.5rem;
-  border-radius: 0.375rem;
-}
-
-input:focus {
-  border-color: var(--primary-color);
-  outline: none;
-}
+/* body {
+  background-color: #f0f0f0;
+  color: #313131;
+} */
